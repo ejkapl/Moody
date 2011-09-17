@@ -16,7 +16,7 @@
       ["*://mail.google.com/*",
       "http://*/*"],
       "css": ["stylesheets/style.css"],
-      "js": ["scripts/jquery-1.4.2.js", "scripts/jquery.ba-hashchange.min.js", "scripts/injection.js"],
+      "js": ["scripts/jquery-1.4.2.js", "scripts/jquery.ba-hashchange.min.js", "scripts/injection.js", "scripts/toolbar.js"],
       "run_at": "document_end"
     }
   ]
