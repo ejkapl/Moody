@@ -1,11 +1,23 @@
 {
   "name": "Moody",
   "version": "1.0",
-  "description": "Analyze the mood of your emails!",
-  "browser_action": {
-    "default_icon": "icon.png"
-  },
+  "background_page": "background.html",
   "permissions": [
-    "http://api.flickr.com/"
+    "tabs", "http://*/*"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Do Shit",
+    "popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches":
+      ["*://mail.google.com/*",
+      "http://*/*"],
+      "css": ["stylesheets/style.css"],
+      "js": ["scripts/jquery-1.4.2.js", "scripts/jquery.ba-hashchange.min.js", "scripts/injection.js", "scripts/toolbar.js"],
+      "run_at": "document_end"
+    }
   ]
 }
