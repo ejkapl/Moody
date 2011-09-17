@@ -13,12 +13,9 @@ var categories = {
 	PRIMARY:primaryCats,
 	SECONDARY:secondaryCats
 };
-	
-
 
 function wordCounts(str){
-	str = str.replace(/[^\w\s]|_/g, "");
-	str = str.toUpperCase();
+	str = str.replace(/[^\w\s]|_/g, "").toUpperCase();
 	words = str.split(/\s+/g);
 	var catCount = {};
 	for (word in words){
@@ -35,6 +32,22 @@ function wordCounts(str){
 	return catCount;
 }
 
+function getEmotionData(counts){
+	var outCounts = {};
+	var emotions = categories["SECONDARY"]["EMOTIONS"];
+	for (i in emotions){
+		var emotion = emotions[i];
+		if (counts[emotion]){
+			outCounts[emotion]=counts[emotion];
+		}
+		else{
+			outCounts[emotion]=0;
+		}
+	}
+	return outCounts;
+}
+		
+		
 //getCategories:
 	//IN: String word
 	//ARRAY OF CATEGORIES
