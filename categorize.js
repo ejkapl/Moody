@@ -679,4 +679,20 @@ function getCategories(word){
 	return null;
 }
 
-
+function analyze() {
+	alert("analyze");
+	cats = ["POSITIVE_AFFECT", "ANXIETY", "SADNESS", "AFFECTION", "AGGRESSION", "EXPRESSIVE_BEH", "GLORY"]
+	ta = document.getElementById("textarea");
+	alert('worked');
+	var text = ta.value;
+	alert(text);
+	if(text.length < 1) return;
+	alert(text);
+	data = getEmotionData(text);
+	str = '';
+	for(var i = 0; i < cats.length; i++)
+	{
+		str = str + data[cats[i]] + ': ' + cats[i] + '\n';
+	}
+	alert(str);
+}

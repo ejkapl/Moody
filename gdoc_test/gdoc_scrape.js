@@ -1,9 +1,5 @@
-var ul = document.getElementsByTagName( "div" );
-var arr;
-var para = null;
-
 window.onload = function(){ runTextScrape() }
-$(document).ready(runTextScrape);
+window.onkeypress = function(){ rrunTextScrape(); }
 
 function runTextScrape() {
 	
