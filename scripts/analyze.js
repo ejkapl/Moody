@@ -685,18 +685,5 @@ function analyze() {
 	var text = ta.value;
 	if(text.length < 1) return;
 	dataLabelDict = getEmotionData(text);
-	var chart = new AwesomeChart('popupChartCanvas');
-	chart.chartType = "pie";
-	//chart.title = "Worldwide browser market share: December 2010";
-	chart.data = [];
-	chart.labels = [];
-	for(var emotion in dataLabelDict){
-	if(dataLabelDict[emotion] != 0){
-	//alert('label: '+emotion+' | number: '+dataLabelDict[emotion]);
-	  chart.labels.push(emotion);
-	  chart.data.push(dataLabelDict[emotion]);
-	}
-	}
-	chart.colors = ['#006CFF', '#FF6600', '#34A038', '#945D59', '#93BBF4', '#F493B8'];
-	chart.draw();
+	drawChart(dataLabelDict, "popupChartCanvas");
 }
