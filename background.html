@@ -4,16 +4,17 @@
 
 <head>
   <script>
+    chrome.pageAction.show(tabId);
     // Called when the url of a tab changes.
+    /*
     function checkForValidUrl(tabId, changeInfo, tab) {
       if (tab.url.indexOf('compose') > -1 || tab.url.indexOf('drafts/') > -1 || tab.url.indexOf('docs.google.com/document/') > -1) {
         // ... show the page action.
-        chrome.pageAction.show(tabId);
       }
     };
-
     // Listen for any changes to the URL of any tab.
     chrome.tabs.onUpdated.addListener(checkForValidUrl);
+*/
      /*  
     chrome.extension.onRequest.addListener(
       function(request, sender, sendResponse) {

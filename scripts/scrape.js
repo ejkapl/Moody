@@ -23,12 +23,21 @@ function getGDocText() {
 		{
 			elem = elems[i];
 			if(elem.className == '') {
-			//alert("help");
 				text = text + elem.textContent + '\n';
 			}
 			
 		}
 	}
+  
+  spans = getElementsByTagName("span");
+  for(var i = 0; i < spans.length; i++)
+		{
+			span = spans[i];
+			if(span.className == '') {
+				text = text + span.textContent + '\n';
+			}
+			
+		}
 	return text;
 }
 
