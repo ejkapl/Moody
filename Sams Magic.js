@@ -20,7 +20,7 @@ $(document).ready(function(){
 		tx.executeSql('CREATE TABLE IF NOT EXISTS words (id unique, text, cat, subcat, subsubcat)');
 		//for each element in the JSON, insert into db
 		//change url to a real one
-		$.getJSON("www.seas.upenn.edu/~kaplane/someJSON.js", function(result){
+		$.getJSON("http://www.seas.upenn.edu/~kaplane/RID.json", function(result){
 				//insert each row into DB
 				
 				//too tired to remember how to do this
@@ -31,6 +31,8 @@ $(document).ready(function(){
 	});
 };
 
+//returns array of categories if word is found and not in exclude
+// else returns null
 function getCategories(word){
 	var result;
 	db.transaction(function (tx) {
@@ -38,7 +40,18 @@ function getCategories(word){
 		[word], 
 		function (tx, results) {
 		result=results;
-	});}
+		});
+	db.transaction(function (tx) {
+		tx.executeSql('SELECT Count(*) FROM exclude WHERE ? like text', 
+		[word],
+		function(tx,results){
+			if(results>=1){
+				result=null;
+			}
+		}
+		});
+	}
+	
 	return result;
 }
 
