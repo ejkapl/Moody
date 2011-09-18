@@ -1,5 +1,5 @@
 function openPanel(){
-  setTimeout(function() {$('#panel').animate({height: "18em"}, "slow")} , 1000);
+  setTimeout(function() {$('#panel').animate({height: "18em"}, "slow")} , 500);
 }
 
 function closePanel(){

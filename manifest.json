@@ -3,23 +3,28 @@
   "version": "1.0",
   "background_page": "background.html",
   "permissions": [
-    "tabs", "*://mail.google.com/*"
+    "tabs",
+    "*://mail.google.com/*",
+    "*://docs.google.com/document/*"
   ],
-  "browser_action": {
+  "page_action": {
     "default_icon": "icon.png",
     "default_title": "Moody",
-    "popup": "popup.html"
+    "default_popup": "popup.html"
   },
   "content_scripts": [
     {
       "matches":
-      ["*://mail.google.com/*"],
+      ["*://mail.google.com/*",
+      "*://docs.google.com/document/*"],
       "css": ["stylesheets/style.css"],
-      "js": ["scripts/jquery-1.4.2.js",
-            "scripts/jquery.ba-hashchange.min.js",
-            "scripts/awesomechart.js",
-            "scripts/injection.js",
-            "scripts/toolbar.js"],
+      "js": ["scripts/lib/jquery-1.4.2.js",
+            "scripts/lib/jquery.ba-hashchange.min.js",
+            "scripts/lib/awesomechart.js",
+            "scripts/analyze.js",
+            "scripts/scrape.js",
+            "scripts/toolbar_content_script.js"
+            ],
       "run_at": "document_end"
     }
   ]

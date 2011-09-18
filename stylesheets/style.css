@@ -1,21 +1,50 @@
 #injectedViaJS{
   width: 100%;
 }
-#panel{
+.panel{
+  display: none;
   background: white;
-  border-bottom-left-radius: 1em;
   border-bottom-right-radius: 1em;
   border: 2px solid gray;
-  height: 0em;
-  width: 40%;
   position: absolute;
-  top: -2px;
   padding: 0.25em;
   padding-top: 2px;
+}
+
+#panel_gdocs{
+  border-top-right-radius: 1em;
+  width: 0em;
+  height: 600px;
+  top: 160px;
+  left: -2px;
+}
+#panel_gdocs #close_panel{
+  position: absolute;
+  top: 95%;
+  left: 90%;
+}
+#panel_gmail{
+  border-bottom-left-radius: 1em;
+  height: 0em;
+  width: 600px;
+  top: -2px;
   left: 55%;
-  display: none;
+}
+
+
+.panel_piece{
+  z-index: 100;
 }
 
 #close_panel{
+  display: block;
+  height: 24px;
+  width: 24px;
   float: right;
+  background-image:url('http://www.seas.upenn.edu/~kaplane/xbutton.png');
+  cursor: pointer;
+}
+
+#chartCanvas{
+  
 }

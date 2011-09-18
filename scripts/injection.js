@@ -4,7 +4,7 @@
 // Bind an event to window.onhashchange that, when the hash changes, gets the
 // hash and adds the class "selected" to any matching nav link.
 $(window).hashchange(createPanel);
-
+$(document).ready(createPanel);
 // Since the event is only triggered when the hash changes, we need to trigger
 // the event now, to handle the hash the page may have loaded with.
 $(window).hashchange();
@@ -28,7 +28,7 @@ function createPanel(){
     injectHtml('body',
     '<div id="panel">' +
     '<canvas id="chartCanvas5" width="300%" height="300%">Your web-browser does not support the HTML 5 canvas element.</canvas>' +
-    '<div id="close_panel" onclick="var element=document.getElementById(\'panel\'); element.parentNode.removeChild(element);">CLICK ME!</div>' +
+    '<div id="close_panel" onclick="var element=document.getElementById(\'panel\'); element.parentNode.removeChild(element);"></div>' +
     '</div>');
     drawChart();
     openPanel();

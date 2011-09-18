@@ -3,12 +3,28 @@
 <html xmlns = "template" lang = "en">
 
 <head>
-  <script type="text/javascript" src="scripts/toolbar.js"></script>
+  <script>
+    // Called when the url of a tab changes.
+    function checkForValidUrl(tabId, changeInfo, tab) {
+      if (tab.url.indexOf('compose') > -1 || tab.url.indexOf('drafts/') > -1 || tab.url.indexOf('docs.google.com/document/') > -1) {
+        // ... show the page action.
+        chrome.pageAction.show(tabId);
+      }
+    };
+
+    // Listen for any changes to the URL of any tab.
+    chrome.tabs.onUpdated.addListener(checkForValidUrl);
+     /*  
+    chrome.extension.onRequest.addListener(
+      function(request, sender, sendResponse) {
+        alert("1");
+        chrome.tabs.executeScript({code: "createPanel();"]);
+      });
+      */
+    //chrome.pageAction.onClicked.addListener(function(Tab tab) {alert("!")}));
+  </script>
 </head>
 
 <body>
-  <script>
-    //chrome.tabs.executeScript(null, {file: "http://code.jquery.com/jquery-latest.js"});
-  </script>
 </body>
 </html>
