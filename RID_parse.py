@@ -13,6 +13,8 @@ c = conn.cursor()
 f_main = open('RID.CAT')
 f_exc = open('RID.exc')
 
+f_json = open('RID.json', 'w')
+
 c.execute('drop table words;')
 c.execute('drop table exclude;')
 
@@ -32,12 +34,14 @@ lines = f_main.readlines()
 cat1=''
 cat2=''
 cat3=''
-
+output = ''
+output += '{\"values\" : [{\"words\": [\n'
 for line in lines:
     if re.match('\t\t\t\t*', line):
         word = line.strip()
         t = (word, cat1, cat2, cat3)
         c.execute('insert into words values(?,?,?,?);', t)
+        output += '{\"' + word + '\" : [\"' + cat1 + '\",\"' + cat2 + '\",\"' + cat3 + '\"]},\n'
     elif re.match('\t\t\t*', line):
         cat3 = line.strip()
     elif re.match('\t\t*', line):
@@ -45,12 +49,29 @@ for line in lines:
     else:
         cat1 = line.strip()
 
+output = output[:-2] +'\n'
+
+output += ']}'
+f_json.write(output)
+output = ''
+f_json.flush()
+print 'words done'
+
+output += ',{\"exclude\": [\n'
 for line in f_exc.readlines():
     t = tuple([line.strip()])
     c.execute('insert into exclude values(?);', t)
+    output += '\"'
+    output += line.strip()
+    output += '\",\n'
+    print '\'' + line.strip()
 
-l1 = c.execute('select * from words where \'ABSINTHYA:KJSD\' like words.word')
-for l in l1:
-    print l
+output = output[:-2] +'\n'
+output += ']}]}'
+
+f_json.write(output)
+f_json.flush()
+
+print 'load done'
 
 #print main_cats
