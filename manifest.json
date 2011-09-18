@@ -3,20 +3,23 @@
   "version": "1.0",
   "background_page": "background.html",
   "permissions": [
-    "tabs", "http://*/*"
+    "tabs", "*://mail.google.com/*"
   ],
   "browser_action": {
     "default_icon": "icon.png",
-    "default_title": "Do Shit",
+    "default_title": "Moody",
     "popup": "popup.html"
   },
   "content_scripts": [
     {
       "matches":
-      ["*://mail.google.com/*",
-      "http://*/*"],
+      ["*://mail.google.com/*"],
       "css": ["stylesheets/style.css"],
-      "js": ["scripts/jquery-1.4.2.js", "scripts/jquery.ba-hashchange.min.js", "scripts/injection.js", "scripts/toolbar.js"],
+      "js": ["scripts/jquery-1.4.2.js",
+            "scripts/jquery.ba-hashchange.min.js",
+            "scripts/awesomechart.js",
+            "scripts/injection.js",
+            "scripts/toolbar.js"],
       "run_at": "document_end"
     }
   ]
