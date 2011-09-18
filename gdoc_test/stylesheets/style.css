@@ -1,0 +1,13 @@
+#injectedViaJS{
+  width: 100%;
+}
+#panel {
+    background: white;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+    border: 2px solid black;
+    height: 5em;
+    width: 50%;
+    position: absolute;
+    left: 25%;
+}
