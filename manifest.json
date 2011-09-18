@@ -18,8 +18,9 @@
       "js": ["scripts/jquery-1.4.2.js",
             "scripts/jquery.ba-hashchange.min.js",
             "scripts/awesomechart.js",
-            "scripts/injection.js",
-            "scripts/toolbar.js"],
+            "scripts/toolbar.js",
+            "scripts/injection.js"
+            ],
       "run_at": "document_end"
     }
   ]

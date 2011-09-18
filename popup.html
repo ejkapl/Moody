@@ -3,13 +3,15 @@
 <html xmlns = "template" lang = "en">
 
 <head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/popup.css" />
+  <script type="text/javascript" src="scripts/toolbar.js"></script>
 </head>
 
 <body> 
   <body class="popup_page">
     <ul>
-      <li><a href="javascript:void(0)" onclick="injectHtml('body', '<div height=200px>HI!</div>')" id="inject">Inject</a></li>
-      <li><a href="javascript:void(0)" id="contact">Select Contact</a></li>
+      <li><a href="javascript:void(0)" onclick="openPanel();" id="open">Open Panel</a></li>
+      <li><a href="javascript:void(0)" onclick="closePanel();" id="close">Close Panel</a></li>
     </ul>
   </body>
 </body>
