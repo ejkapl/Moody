@@ -1932,4 +1932,28 @@ function initDatabase(){
 		
 //getCategories:
 	//IN: String word
-	//ARRAY OF CATEGORIES
+
+//returns map of categories if word is found and not in exclude
+// map keys are (id, text,cat,subcat,subsubcat)
+// else returns null
+function getCategories(word){
+	var result;
+	db.transaction(function (tx) {
+		tx.executeSql('SELECT cat,subcat,subsubcat FROM words WHERE ? like text', 
+		[word], 
+		function (tx, results) {
+		result=results;
+		});/*
+	db.transaction(function (tx) {
+		tx.executeSql('SELECT Count(*) FROM exclude WHERE ? like text', 
+		[word],
+		function(tx,results){
+			if(results>=1){
+				result=null;
+			}
+		}
+		});*/
+	}
+	
+	return result;
+}
