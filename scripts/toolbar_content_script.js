@@ -36,7 +36,7 @@ function createPanel(chart_data){
     }
     //Gmail email creation
     else if(hash.indexOf("#compose") > -1 || hash.indexOf("#drafts/") > -1){
-      textToAnalyze = '';
+      textToAnalyze = getGMailText();
       panelId = 'panel_gmail';
     }
     
@@ -79,8 +79,8 @@ function drawChart(dataLabelDict){
   chart.data = [];
   chart.labels = [];
   for(var emotion in dataLabelDict){
-    alert('label: '+emotion+' | number: '+dataLabelDict[emotion]);
     if(dataLabelDict[emotion] != 0){
+    alert('label: '+emotion+' | number: '+dataLabelDict[emotion]);
       chart.labels.push(emotion);
       chart.data.push(dataLabelDict[emotion]);
     }

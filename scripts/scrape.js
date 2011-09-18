@@ -2,6 +2,16 @@ var ul = document.getElementsByTagName( "div" );
 var arr;
 var para = null;
 
+
+function getGMailText() {
+	arr = getElementsByClassName(document, "body", "editable LW-yrriRe");
+  alert(arr.length);
+	if(arr.length < 1) return '';
+	var text = arr[0].textContent;
+	return text;
+}
+
+
 function getGDocText() {
 	arr = getElementsByClassName(document, "div", "kix-lineview-content");
 
