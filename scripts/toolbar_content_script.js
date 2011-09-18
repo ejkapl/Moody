@@ -54,7 +54,7 @@ function createPanel(chart_data){
     
     var chartData = getEmotionData(textToAnalyze);
   
-    drawChart(chartData);
+    drawChart(chartData, 'chartCanvas');
     openPanel();
   } else{
     //closePanel();
@@ -72,8 +72,8 @@ function closePanel(){
   $('.panel').animate({height: "18em"}, "slow").delay(500).animate({height: "0em"}, "slow");
 }
 */
-function drawChart(dataLabelDict){
-  var chart = new AwesomeChart('chartCanvas');
+function drawChart(dataLabelDict, id){
+  var chart = new AwesomeChart(id);
   chart.chartType = "pie";
   //chart.title = "Worldwide browser market share: December 2010";
   chart.data = [];
