@@ -1,0 +1,22 @@
+{
+  "name": "Moody",
+  "version": "1.0",
+  "background_page": "background.html",
+  "permissions": [
+    "https://docs.google.com/"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_title": "Do Shit",
+    "popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches":
+      ["*://docs.google.com/*"],
+      "css": ["stylesheets/style.css"],
+      "js": ["gdoc_scrape.js", "scripts/jquery-1.4.2.js", "scripts/jquery.ba-hashchange.min.js", "scripts/injection.js", "scripts/toolbar.js"],
+      "run_at": "document_end"
+    }
+  ]
+}
