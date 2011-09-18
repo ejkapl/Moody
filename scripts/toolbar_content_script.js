@@ -80,7 +80,7 @@ function drawChart(dataLabelDict, id){
   chart.labels = [];
   for(var emotion in dataLabelDict){
     if(dataLabelDict[emotion] != 0){
-    alert('label: '+emotion+' | number: '+dataLabelDict[emotion]);
+    //alert('label: '+emotion+' | number: '+dataLabelDict[emotion]);
       chart.labels.push(emotion);
       chart.data.push(dataLabelDict[emotion]);
     }
