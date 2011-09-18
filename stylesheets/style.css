@@ -1,13 +1,21 @@
 #injectedViaJS{
   width: 100%;
 }
-#panel {
-    background: white;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
-    border: 2px solid black;
-    height: 5em;
-    width: 50%;
-    position: absolute;
-    left: 25%;
+#panel{
+  background: white;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  border: 2px solid gray;
+  height: 0em;
+  width: 40%;
+  position: absolute;
+  top: -2px;
+  padding: 0.25em;
+  padding-top: 2px;
+  left: 55%;
+  display: none;
+}
+
+#close_panel{
+  float: right;
 }
