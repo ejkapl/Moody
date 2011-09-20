@@ -4,7 +4,6 @@
   "background_page": "background.html",
   "permissions": [
     "tabs",
-    "*://mail.google.com/*",
     "*://docs.google.com/document/*"
   ],
   "browser_action": {
@@ -15,8 +14,7 @@
   "content_scripts": [
     {
       "matches":
-      ["*://mail.google.com/*",
-      "*://docs.google.com/document/*"],
+      ["*://docs.google.com/document/*"],
       "css": ["stylesheets/style.css"],
       "js": ["scripts/lib/jquery-1.4.2.js",
             "scripts/lib/jquery.ba-hashchange.min.js",
